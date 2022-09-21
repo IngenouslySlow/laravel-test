@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CodesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Get
+Route::get('/', [CodesController::class, 'index'])->name('home.index');
+
+// Post
+Route::post('/', [CodesController::class, 'getCodes'])->name('home.show');
